@@ -1,4 +1,3 @@
-``` python
 a, b, c = map(int, input().split())
 if a > c:
     a, c = c, a
@@ -16,4 +15,4 @@ elif a*a+b*b < c*c:
     print(a, b, c, '\nObtuse')
 else:
     print(a, b, c, '\nAcute')
-```
+
