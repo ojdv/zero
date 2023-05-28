@@ -1,3 +1,4 @@
+#年份
 while True:
     try:
         y = int(input())

@@ -1,4 +1,3 @@
-#因數分解
 n = int(input())
 tmp = []
 for i in range(2, int(1e9)):

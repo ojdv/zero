@@ -1,33 +1,14 @@
-from pwn import *
-r = remote("120.114.62.214", 2406)
-r.recvlines(14)
-
-for i in range(100):
-    r.recvline()
-
-    idd = r.recvline().split()
-
-    ap = idd[2].decode()
-    print(ap)
-    summ = 0
-    ill = 0
-    print(len(idd[2]))
-
-    for f in range(1, 10):
-        summ += int(ap[f])
-    if (len(idd[2]) == 10) and (summ % 3 == 0) and ('A' <= ap[0] <= 'Z'):
-        ill = 1
-    else:
-        ill = 0
-
-    r.recvuntil("answer : ")
-    if ill == 1:
-        r.sendline("valid")
-        print(b"valid")
-    else:
-        r.sendline("invalid")
-        print(b"invalid")
-print(r.recvline().decode())
-
-
-r.close()
+while True:
+    try:
+        a, b, c = map(int, input().split(' '))   # 將題目給予的字串拆分成 a、b、c 三個數字
+        rd = a*(10**c)//b    # 乘以 10^位數 後除以 b 求整數
+        rs = str(rd)         # 將整數轉成字串
+        if len(rs) < c:      # 如果字串的長度不足位數
+            for i in range(c - len(rs)):
+                rs = '0' + rs    # 將字串前方補 0
+        m = rs[(c*-1):]      # 根據位數拆分字串 ( 小數點後段 )
+        n = rs[:(c*-1)]      # 根據位數拆分字串 ( 小數點前段 )
+        if n == '': n = '0'  # 如果前段為空字串，就補 0
+        print(f'{n}.{m}')    # 加上小數點，印出結果
+    except:
+        break

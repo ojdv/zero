@@ -1,3 +1,4 @@
+#兩光法師占卜術
 M, D = map(int, input().split())
 S = (M*2+D) % 3
 if S == 0:

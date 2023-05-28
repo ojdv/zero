@@ -1,3 +1,4 @@
+#一元二次方程式
 from math import sqrt
 a, b, c = map(int, input().split())
 judge = b*b-(4*a*c)
