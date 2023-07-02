@@ -1,13 +1,19 @@
-#一元二次方程式
-from math import sqrt
+#待解
+import cmath
+
 a, b, c = map(int, input().split())
-judge = b*b-(4*a*c)
-if judge < 0:
+
+# 计算判别式
+d = b**2 - 4*a*c
+
+# 计算根
+root1 = (-b + cmath.sqrt(d)) / (2*a)
+root2 = (-b - cmath.sqrt(d)) / (2*a)
+
+# 输出结果
+if d < 0:
     print("No real root")
-    exit(0)
-root1 = int((-b + sqrt(judge))/(2*a))
-root2 = int((-b - sqrt(judge))/(2*a))
-if root1 == root2:
-    print(f"Two same roots x={root1}")
+elif d == 0:
+    print(f"Two same roots x={root1.real:.2f}")
 else:
-    print(f"Two different roots x1={max(root1,root2)} , x2={min(root1,root2)}")
+    print(f"Two different roots x1={root1.real:.2f}, x2={root2.real:.2f}")

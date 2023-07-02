@@ -1,9 +1,8 @@
-#兩光法師占卜術
-M, D = map(int, input().split())
-S = (M*2+D) % 3
-if S == 0:
+m,d=map(int,input().split())
+s=(m*2+d)%3
+if s==0:
     print('普通')
-if S == 1:
+elif s==1:
     print('吉')
-if S == 2:
+else:
     print('大吉')

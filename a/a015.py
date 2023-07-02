@@ -1,11 +1,9 @@
-#矩陣翻轉
 from sys import stdin
+
+# 讀入矩陣的行數和列數
 for read in stdin:
     r, c = map(int, read.rstrip().split())
-    matrix = []
-    for i in range(r):
-        matrix.append([int(x) for x in input().split()])
-    for i in range(c):
-        for mat in matrix:
-            print(mat[i], end=' ')
-        print()
+    matrix = [[int(x) for x in input().split()] for _ in range(r)]
+    transposed_matrix = [[row[i] for row in matrix] for i in range(c)]
+    for row in transposed_matrix:
+        print(' '.join(map(str, row)))
